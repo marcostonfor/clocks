@@ -16,8 +16,7 @@ export const estilosPersonales = `
     }
 
 
-    #reloj12h {
+    #reloj12h strong, #reloj24h strong {
         margin-left: 2vw;
-        color: crimson;
     }
     `;
