@@ -38,12 +38,12 @@ function laHora() {
 			let horas = this.reloj.hora % 12;
 			if (horas === 0) horas = 12;
 			const amOpm = this.reloj.hora >= 12 ? "pm" : "am";
-			this._formato = `${this.anyadirCero(horas)}:${this.anyadirCero(this.reloj.minuto)}:${this.anyadirCero(this.reloj.segundo)}<sup>${amOpm}</sup>`;
+			this._formato = `<strong class="comunAdos">${this.anyadirCero(horas)}:${this.anyadirCero(this.reloj.minuto)}:${this.anyadirCero(this.reloj.segundo)}<sup>${amOpm}</sup></strong>`;
 			return this._formato;
 		}
 
 		_24h() {
-			this._formato = `${this.anyadirCero(this.reloj.hora)}:${this.anyadirCero(this.reloj.minuto)}:${this.anyadirCero(this.reloj.segundo)}`;
+			this._formato = `<strong class="comunAdos">${this.anyadirCero(this.reloj.hora)}:${this.anyadirCero(this.reloj.minuto)}:${this.anyadirCero(this.reloj.segundo)}</strong>`;
 			return this._formato;
 		}
 	};
@@ -75,7 +75,7 @@ if (salida24h) {
     box-sizing: border-box;
 }
 
-#dosRelojes div {
+.comunAdos {
     text-align: center;
     width: fit-content;
     border: 0.1vw solid black;
@@ -94,6 +94,8 @@ sup {
 }
 	`;
 		if (estilosPersonales) {
+			document.getElementById('reloj12h').classList.remove('comunAdos');
+			document.getElementById('reloj24h').classList.remove('comunAdos');
 			estils.textContent += estilosPersonales;
 		}
 
