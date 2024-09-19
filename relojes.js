@@ -94,8 +94,6 @@ sup {
 }
 	`;
 		if (estilosPersonales) {
-			document.getElementById('reloj12h').classList.remove('comunAdos');
-			document.getElementById('reloj24h').classList.remove('comunAdos');
 			estils.textContent += estilosPersonales;
 		}
 
