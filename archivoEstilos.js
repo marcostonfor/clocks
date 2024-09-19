@@ -16,7 +16,7 @@ export const estilosPersonales = `
     }
 
 
-    #reloj12h strong, #reloj24h strong {
+    #reloj12h, #reloj24h {
         margin-left: 2vw;
     }
     `;
