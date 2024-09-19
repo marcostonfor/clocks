@@ -1,3 +1,8 @@
+
+document.addEventListener('DOMContentLoaded', () => {
+    conf12h();
+});
+
 export function conf12h() {
     const config = document.createElement('DETAILS');
     config.setAttribute('id', 'configurar12h');
@@ -5,18 +10,16 @@ export function conf12h() {
     summary.innerHTML = `&#9881;`;
     config.appendChild(summary);
     
-    // Verificar si el checkbox ya existe
     if (!document.getElementById('miCheckbox')) {
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.id = 'miCheckbox';
-        checkbox.checked = true; // Mostrar <sup> por defecto
+        checkbox.checked = true;
 
         const label = document.createElement('label');
-        label.htmlFor = 'miCheckbox'; // Asegúrate de que coincida con el id del checkbox
+        label.htmlFor = 'miCheckbox';
         label.textContent = 'Ver "am" "pm"';
 
-        // Crear un elemento <style> para manejar la visibilidad de <sup>
         let estils = document.getElementById('dynamicStyles');
         if (!estils) {
             estils = document.createElement('style');
@@ -24,7 +27,6 @@ export function conf12h() {
             document.head.appendChild(estils);
         }
 
-        // Función para actualizar el estilo de <sup>
         const updateSupVisibility = () => {
             if (checkbox.checked) {
                 estils.textContent = `
@@ -41,16 +43,17 @@ export function conf12h() {
             }
         };
 
-        // Inicializar el estilo de <sup>
         updateSupVisibility();
 
-        // Agregar un evento al checkbox para alternar la visibilidad de <sup>
         checkbox.addEventListener('change', updateSupVisibility);
 
         const mostrarConfiguracion = document.getElementById('caja12h');
-        // Agregar el checkbox y el label al cuerpo del documento
-        label.appendChild(checkbox);
-        config.appendChild(label);
-        mostrarConfiguracion.appendChild(config);
+        if (mostrarConfiguracion) {
+            label.appendChild(checkbox);
+            config.appendChild(label);
+            mostrarConfiguracion.appendChild(config);
+        } else {
+            console.error('Element with ID "caja12h" not found.');
+        }
     }
 }
