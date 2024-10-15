@@ -15,6 +15,10 @@ export const estilosPersonales = `
         font-size: 12pt;
     }
 
+    summary::after {
+        content: "ocultar am-pm";
+    }
+
 
     #reloj12h, #reloj24h {
         margin-left: 2vw;
